@@ -3,3 +3,6 @@ scikit-learn
 pytest
 flake8
 dvc
+fastapi
+uvicorn
+pydantic

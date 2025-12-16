@@ -1,17 +1,22 @@
-# Use a minimal Python image as the base for the training environment
+# Use an official Python runtime as a parent image, minimal size
 FROM python:3.10-slim
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the requirements file first for caching
-COPY requirements.txt .
-
-# Install dependencies
+# Copy the dependency file and install dependencies
+# This is key for efficient Docker caching
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the project code into the container
-COPY . .
+# Copy the models and the API code into the container
+# Ensure these folders (api and models) exist in your project root
+COPY api /app/api
+COPY models /app/models
 
-# Command to run when the container starts: executes the training script (Task 3.1)
-CMD ["python", "src/train.py"]
+# Expose the port the app runs on (FastAPI/Uvicorn default)
+EXPOSE 8000
+
+# Command to run the application using Uvicorn
+# This starts the FastAPI server inside the container
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
