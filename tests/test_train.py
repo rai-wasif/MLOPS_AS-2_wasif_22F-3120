@@ -2,8 +2,7 @@ import pandas as pd
 import os
 import pickle
 import pytest
-# We removed "from src.train import clf" here, 
-# as the tests rely on the saved model.pkl file instead.
+
 
 # A fixture to ensure dependencies are loaded before tests run
 @pytest.fixture(scope="session", autouse=True)

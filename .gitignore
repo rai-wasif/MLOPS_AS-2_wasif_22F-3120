@@ -6,3 +6,12 @@ __pycache__/
 .dvc/tmp
 # data/dataset.csv  # Removed to commit small dataset
 models/model.pkl
+# --- MLOPS Project Specific Ignores ---
+
+# Airflow generated artifacts
+airflow-tutorial/logs/
+airflow-tutorial/.env
+airflow-tutorial/dags/example_dags/
+
+# API generated files
+__pycache__/
