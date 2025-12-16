@@ -1,6 +1,6 @@
 import pandas as pd
 import pickle
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split  <-- REMOVED THIS LINE (F401 fix)
 from sklearn.ensemble import RandomForestClassifier
 import os
 import sys
@@ -10,12 +10,10 @@ print("Loading dataset...")
 df = pd.read_csv("data/dataset.csv")
 
 # --- CRITICAL FIX: Clean up column names by stripping hidden spaces ---
-# This ensures compatibility between Windows (local) and Linux (CI/CD) environments.
 df.columns = df.columns.str.strip() 
 # ---------------------------------------------------------------------
 
 # 2. Split data into features (X) and target (y)
-# The 'target' column name is assumed to be clean after the strip operation
 X = df.drop("target", axis=1)
 y = df["target"]
 
@@ -34,3 +32,5 @@ with open(output_path, "wb") as f:
     pickle.dump(clf, f)
 
 print(f"Model saved to {output_path}")
+
+# Add a single empty line here for W391 fix
