@@ -4,5 +4,5 @@ __pycache__/
 .DS_Store
 .dvc/cache
 .dvc/tmp
-data/dataset.csv
+# data/dataset.csv  # Removed to commit small dataset
 models/model.pkl
