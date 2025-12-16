@@ -1,4 +1,4 @@
-name: Deploy CI Workflow GitHub Action Successfully
+name: Deploy CI Workflow GitHub Action Correctly
 
 on:
   push:
