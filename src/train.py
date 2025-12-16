@@ -1,17 +1,16 @@
 import pandas as pd
 import pickle
-# The import below is REMOVED to fix the F401 error, as it is not used in the training script.
-# from sklearn.model_selection import train_test_split 
+# The import below is REMOVED to fix F401 error, as it's unused.
+# from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import os
-import sys
 
 # 1. Load the dataset
 print("Loading dataset...")
 df = pd.read_csv("data/dataset.csv")
 
 # --- CRITICAL FIX: Clean up column names by stripping hidden spaces ---
-df.columns = df.columns.str.strip() 
+df.columns = df.columns.str.strip()
 # ---------------------------------------------------------------------
 
 # 2. Split data into features (X) and target (y)
