@@ -1,6 +1,7 @@
 import pandas as pd
 import pickle
-# from sklearn.model_selection import train_test_split  <-- REMOVED THIS LINE (F401 fix)
+# The import below is REMOVED to fix the F401 error, as it is not used in the training script.
+# from sklearn.model_selection import train_test_split 
 from sklearn.ensemble import RandomForestClassifier
 import os
 import sys
@@ -33,4 +34,5 @@ with open(output_path, "wb") as f:
 
 print(f"Model saved to {output_path}")
 
-# Add a single empty line here for W391 fix
+# IMPORTANT: Ensure there is ONE blank line after the last print statement.
+# This fixes the W391 and W291 errors by having a clean end-of-file.
